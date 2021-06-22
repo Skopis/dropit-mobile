@@ -1,11 +1,12 @@
-import { createStackNavigator} from 'react-navigation-stack'
-import { createAppContainer, createSwitchNavigator} from 'react-navigation'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 //cmps
 import Home from '../screens/Home';
 import ContactDetails from '../screens/ContactDetails';
 import Address from '../screens/Address';
 import Bags from '../screens/Bags';
 import ReviewScreen from '../screens/ReviewScreen';
+import Drop from '../screens/Drop';
+
 
 const screens = {
     Home: {
@@ -22,6 +23,9 @@ const screens = {
     },
     ReviewScreen: {
         screen: ReviewScreen
+    },
+    Drop: {
+        screen: Drop
     }
 }
 
