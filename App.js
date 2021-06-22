@@ -1,21 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NativeRouter, Switch, Route } from 'react-router-native'
+import { StyleSheet, SafeAreaView, NativeModules, Platform } from 'react-native';
+import Navigator from './app/routes/homeStack'
+//cmps
+// import Home from './app/screens/Home';
+// import ContactDetails from './app/screens/ContactDetails';
+// import Address from './app/screens/Address';
+// import Bags from './app/screens/Bags';
+// import ReviewScreen from './app/screens/ReviewScreen';
+// import Drop from './app/screens/Drop';
+
+
+const { StatusBarManager } = NativeModules;
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+    return (
+        <SafeAreaView style={styles.container}>
+            {/* <NativeRouter>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/contactdetails" component={ContactDetails} />
+                <Route exact path="/address" component={Address} />
+                <Route exact path="/bags" component={Bags} />
+                <Route exact path="/review" component={ReviewScreen} />
+                <Route exact path="/drop" component={Drop} />
+            </NativeRouter> */}
+
+            <Navigator />
+        </SafeAreaView>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    container: {
+        flex: 1,
+        marginTop: Platform.OS === 'android' ? StatusBarManager.HEIGHT : 0,
+    }
+})
